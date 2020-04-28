@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Index
+    </title>
+    <body>
+      <h1>
+        View Reservation
+      </h1>
+      <ul>
+        <li>{{ reservation.name }}</li>
+        <li>{{ reservation.phoneNum }}</li>
+        <li>{{ reservation.email }}</li>
+        <li>{{ reservation.date }}</li>
+        <li>{{ reservation.time }}</li>
+        <li>{{ reservation.partySize }}</li>
+        <li>{{ reservation.notes }}</li>
+      </ul>
+      <a href="{% url 'edit' reservation.id %}">
+        Edit
+      </a>
+      <a href="{% url 'index' %}">
+        Home
+      </a>
+    </body>
+  </head>
+</html>

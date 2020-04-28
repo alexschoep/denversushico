@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Reservations
+    </title>
+    <body>
+      <h1>
+        Reservations
+      </h1>
+      <h2>
+        Make
+      </h2>
+      <form method="post">
+        <ul>
+          {% csrf_token %} {{ form.as_ul }}
+        </ul>
+        <button type="submit">Submit</button>
+      </form>
+      </ul>
+    </body>
+  </head>
+</html>

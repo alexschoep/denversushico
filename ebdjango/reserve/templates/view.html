@@ -10,16 +10,17 @@
       </h1>
       <ul>
         <li>{{ reservation.name }}</li>
-        <li>{{ reservation.phoneNum }}</li>
         <li>{{ reservation.email }}</li>
         <li>{{ reservation.date }}</li>
         <li>{{ reservation.time }}</li>
         <li>{{ reservation.partySize }}</li>
         <li>{{ reservation.notes }}</li>
+        <li>{{ reservation.url }}</li>
       </ul>
-      <a href="{% url 'edit' reservation.id %}">
+      <a href="{% url 'edit' reservation.url %}">
         Edit
       </a>
+      <div></div>
       <a href="{% url 'index' %}">
         Home
       </a>

@@ -2,9 +2,13 @@ from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Reservation
 from .forms import ReservationForm
+from django.views.generic.detail import DetailView
+from .sendEmail import EmailMessage
 
 
 # Create your views here.
+
+#displays the landing page
 def index(request):
     return render(request, 'index.html')
 
@@ -14,32 +18,33 @@ def reserve(request):
         form = ReservationForm(request.POST)
         if form.is_valid():
             reservation = form.save()
-            return redirect('view', resid=reservation.id)
-        else:
-            print('invalid form submission')
+            email = EmailMessage(reservation)
+            email.send()
+            return redirect('view', pk=reservation.url)
 
-    form = ReservationForm()
-    context = {
-        "form": form
-    }
+    else:
+        form = ReservationForm()
+    
+    context = {"form": form}
     return render(request, 'reserve.html', context)
 
 
-def view(request, resid):
-    reservation = get_object_or_404(Reservation, pk=resid)
-    return render(request, 'view.html', {'reservation': reservation})
+class ReservationDetailView(DetailView):
+    model = Reservation
+    template_name = 'view.html'
 
 
-def edit(request, resid):
-    reservation = get_object_or_404(Reservation, pk=resid)
+def edit(request, pk):
+    reservation = get_object_or_404(Reservation, pk=pk)
     if request.method == "POST":
         form = ReservationForm(request.POST, instance=reservation)
         if form.is_valid():
             form.save()
-            return redirect('view', resid=resid)
+            return redirect('view', pk=pk)
 
-    form = ReservationForm(initial={'name': reservation.name, 'phoneNum': reservation.phoneNum, 'email': reservation.email,
-                                    'date': reservation.date, 'time': reservation.time, 'partySize': reservation.partySize, 'notes': reservation.notes})
+    else:
+        form = ReservationForm(initial={'name': reservation.name, 'email': reservation.email, 'date': reservation.date, 
+                                    'time': reservation.time, 'partySize': reservation.partySize, 'notes': reservation.notes})
     context = {
         "reservation": reservation,
         "form": form

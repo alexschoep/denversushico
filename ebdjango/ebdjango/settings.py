@@ -25,6 +25,7 @@ SECRET_KEY = '7jt7@&maa2g#6hjx$w2qxl$3@5hr#ddmk1qmrukltxo3l4m$!t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+#allow localhost and elasticbeanstalk internal url
 ALLOWED_HOSTS = ['ebdjango-dev22.us-west-2.elasticbeanstalk.com', '127.0.0.1']
 
 
@@ -37,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #install the reserve app
     'reserve.apps.ReserveConfig'
 ]
 
@@ -74,6 +77,7 @@ WSGI_APPLICATION = 'ebdjango.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
+#use SQLite locally and PostgreSQL on development server
 if 'RDS_HOSTNAME' in os.environ:
     DATABASES = {
         'default': {
@@ -118,7 +122,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+#set time zone to Denver
+TIME_ZONE = 'America/Denver'
 
 USE_I18N = True
 

@@ -12,8 +12,9 @@
         Make
       </h2>
       <form method="post">
+        {% csrf_token %} 
         <ul>
-          {% csrf_token %} {{ form.as_ul }}
+          {{ form.as_ul }}
         </ul>
         <button type="submit">Submit</button>
       </form>

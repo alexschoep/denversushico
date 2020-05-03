@@ -1,24 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>
-      Reservations
-    </title>
-    <body>
-      <h1>
-        Reservations
-      </h1>
-      <h2>
-        Make
-      </h2>
-      <form method="post">
-        {% csrf_token %} 
-        <ul>
-          {{ form.as_ul }}
-        </ul>
-        <button type="submit">Submit</button>
-      </form>
-      </ul>
-    </body>
-  </head>
-</html>
+{% extends 'base.html' %}
+{% block header %}
+<h2>
+  Make A Reservation
+</h2>
+{% endblock %}
+{% block content %}
+{% include 'reservationform.html' %}
+{% endblock %}

@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>
-      Index
-    </title>
-    <body>
-      <h1>
-        Welcome to Denver Sushi Co
-      </h1>
-      <a href="{% url 'reserve' %}">
-        Make a Reservation
-      </a>
-    </body>
-  </head>
-</html>
+{% extends 'base.html' %}
+{% block header %}
+<h2>
+  Welcome!
+</h2>
+{% endblock %}
+{% block content %}
+<a href="{% url 'reserve' %}">
+  Make a Reservation
+</a>
+{% endblock %}

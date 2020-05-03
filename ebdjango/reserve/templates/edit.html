@@ -1,25 +1,12 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>
-      Reservations
-    </title>
-    <body>
-      <h1>
-        Reservations
-      </h1>
-      <h2>
-        Edit
-      </h2>
-      <form method="post">
-        <ul>
-          {% csrf_token %} {{ form.as_ul }}
-        </ul>
-        <button type="submit">Submit</button>
-      </form>
-      <a href="{% url 'view' reservation.url %}">
-        Cancel
-      </a>
-    </body>
-  </head>
-</html>
+{% extends 'base.html' %}
+{% block header %}
+<h2>
+  Edit Reservation
+</h2>
+{% endblock %}
+{% block content %}
+{% include 'reservationform.html' %}
+<a href="{% url 'view' reservation.url %}">
+  Cancel
+</a>
+{% endblock %}

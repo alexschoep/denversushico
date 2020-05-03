@@ -1,29 +1,24 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>
-      Index
-    </title>
-    <body>
-      <h1>
-        View Reservation
-      </h1>
-      <ul>
-        <li>{{ reservation.name }}</li>
-        <li>{{ reservation.email }}</li>
-        <li>{{ reservation.date }}</li>
-        <li>{{ reservation.time }}</li>
-        <li>{{ reservation.partySize }}</li>
-        <li>{{ reservation.notes }}</li>
-        <li>{{ reservation.url }}</li>
-      </ul>
-      <a href="{% url 'edit' reservation.url %}">
-        Edit
-      </a>
-      <div></div>
-      <a href="{% url 'index' %}">
-        Home
-      </a>
-    </body>
-  </head>
-</html>
+{% extends 'base.html' %}
+{% block header %}
+<h2>
+  View Reservation
+</h2>
+{% endblock %}
+{% block content %}
+<ul>
+  <li>{{ reservation.name }}</li>
+  <li>{{ reservation.email }}</li>
+  <li>{{ reservation.date }}</li>
+  <li>{{ reservation.time }}</li>
+  <li>{{ reservation.partySize }}</li>
+  <li>{{ reservation.notes }}</li>
+  <li>{{ reservation.url }}</li>
+</ul>
+<a href="{% url 'edit' reservation.url %}">
+  Edit
+</a>
+<div></div>
+<a href="{% url 'index' %}">
+  Home
+</a>
+{% endblock %}

@@ -18,13 +18,14 @@ class Reservation(models.Model):
     name = models.CharField(max_length=128)
     email = models.CharField(max_length=128)
     date = models.DateField()
-    time = models.TimeField(choices=TIME_ENUM)
+    time = models.TimeField()
     partySize = models.IntegerField()
     notes = models.CharField(max_length=256, blank=True)
 
     def __init__(self, *args, **kwargs):
         super(Reservation, self).__init__(*args, **kwargs)
-        self.url = ''.join(choice(ascii_letters) for i in range(24))
+        if not self.url:
+            self.url = ''.join(choice(ascii_letters) for i in range(24))
 
     def __str__(self):
         return f"{self.url}: {self.name}, {self.email}, {self.date}, {self.time}, {self.partySize}, {self.notes}"

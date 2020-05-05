@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 {% block header %}
-<h2>
-  Make A Reservation
-</h2>
+
 {% endblock %}
 {% block content %}
-{% include 'reservationform.html' %}
+<div style="max-width: 800px" class="p-2 ml-auto mr-auto mt-3">
+  <h2>
+    Make A Reservation
+  </h2>
+  <hr>
+  {% include 'reservationform.html' %}
+</div>
 {% endblock %}

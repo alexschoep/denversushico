@@ -1,10 +1,23 @@
 {% extends 'base.html' %}
-{% block header %}
-<h2>
-  Welcome!
-</h2>
-{% endblock %}
 {% block content %}
+<div class="jumbotron row justify-content-center">
+  <div class="col-md-4">
+    {% load static %}
+    <img style="width:100%; max-width:400px" class="d-block mx-auto" src='{% static "/images/logo.png" %}'>
+  </div>
+  <div class="col-md-4 mt-3">
+    <h2>
+      Welcome!
+    </h2>
+    <p>
+      Welcome to Denver Sushi Company! Lorem ipsum dolor sit amet blah blah blah asdfsdfg dfg dfgsgd dfg df ggdfgd gdfg
+      dgdfgd fgdfgdfgd fgdfg dg dfg dfg dfg
+    </p>
+  </div>
+</div>
+<div class="carousel slide" data-ride="carousel">
+
+</div>
 <a href="{% url 'reserve' %}">
   Make a Reservation
 </a>

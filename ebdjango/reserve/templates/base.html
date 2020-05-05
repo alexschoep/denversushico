@@ -7,14 +7,16 @@
   <title>Denver Sushi Co</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+  {% load static %}
+  <link rel="stylesheet" href='{% static "css/style.css" %}'>
 </head>
 
 <body>
   <nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top row">
-    <div class="col-md-8 col-9">
-      <a class="navbar-brand" href="#">
-        {% load static %}
-        <img style="width:100%; max-width:500px" src='{% static "/images/header.png" %}'>
+    <div class="navbar-text col-md-8 col-9">
+      <a href="{% url 'index' %}">
+        <h1 class="pl-2 header">Denver Sushi Co</h1>
       </a>
     </div>
     <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbar">
@@ -29,16 +31,12 @@
           <a class="nav-link" href="#">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Reserve</a>
+          <a class="nav-link" href="{% url 'reserve' %}">Reserve</a>
         </li>
       </ul>
     </div>
   </nav>
 
-  <div id="header">
-    {% block header %}
-    {% endblock %}
-  </div>
   <div id="content">
     {% block content %} {% endblock %}
   </div>

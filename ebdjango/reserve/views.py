@@ -50,3 +50,9 @@ def edit(request, pk):
         "form": form
     }
     return render(request, 'edit.html', context)
+
+def delete(request, pk):
+    reservation = get_object_or_404(Reservation, pk=pk)
+    if request.method == "POST":
+        reservation.delete()
+    return redirect('reserve')

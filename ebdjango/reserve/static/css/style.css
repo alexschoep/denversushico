@@ -1,0 +1,14 @@
+.header {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+}
+
+.errorlist {
+  margin: 0;
+  padding-left: 0.25em;
+}
+
+.errorlist > li {
+  color: red;
+  list-style: none;
+}

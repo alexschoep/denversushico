@@ -13,5 +13,8 @@ urlpatterns = [
     path('reserve/<slug:pk>', ReservationDetailView.as_view(), name='view'),
 
     #reservation edit page (get, post)
-    path('reserve/<slug:pk>/edit', views.edit, name='edit')
+    path('reserve/<slug:pk>/edit', views.edit, name='edit'),
+
+    #reservation delete (post)
+    path('reserve/<slug:pk>/delete', views.delete, name='delete')
 ]

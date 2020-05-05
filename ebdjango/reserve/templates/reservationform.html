@@ -2,33 +2,39 @@
   {% csrf_token %}
   <div class="row">
     <div class="form-group col-md">
-      <label for="name">{{ form.name.label }}</label>
+      <label for="name">Name</label>
       {{ form.name }}
+      {{ form.name.errors }}
     </div>
     <div class="form-group col-md">
-      <label for="email">{{ form.email.label }}</label>
+      <label for="email">Email</label>
       {{ form.email }}
+      {{ form.email.errors }}
     </div>
   </div>
   <div class="row">
     <div class="form-group col-md">
-      <label for="name">{{ form.date.label }}</label>
+      <label for="name">Date</label>
       {{ form.date }}
+      {{ form.date.errors }}
     </div>
     <div class="form-group col-md">
-      <label for="name">{{ form.time.label }}</label>
+      <label for="name">Time</label>
       {{ form.time }}
+      {{ form.time.errors }}
     </div>
     <div class="form-group col-md">
-      <label for="name">{{ form.partySize.label }}</label>
+      <label for="name">Party Size</label>
       {{ form.partySize }}
+      {{ form.partySize.errors }}
     </div>
   </div>
   <div class="row align-items-center">
     <div class="form-group col-md">
-      <label for="notes">{{ form.notes.label }}</label>
+      <label for="notes">Notes for the staff (optional)</label>
       {{ form.notes }}
+      {{ form.notes.errors }}
     </div>
-    <button style="height:30px; margin-left:10px; margin-right:20px" type="submit">Submit</button>
+    <button class='btn btn-primary ml-auto mr-auto ml-md-2 mr-md-4' type="submit">Submit</button>
   </div>
 </form>

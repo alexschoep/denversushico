@@ -12,6 +12,9 @@ class TimeInput(forms.TimeInput):
 class NotesInput(forms.Textarea):
     input_type = 'textarea'
 
+class PartySizeInput(forms.NumberInput):
+    input_type='number'
+
 #create form from reservation model
 class ReservationForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
@@ -29,5 +32,6 @@ class ReservationForm(forms.ModelForm):
         widgets = {
             'date': DateInput(attrs={'min':datetime.date.today(), 'max':datetime.date.today() + datetime.timedelta(365)}),
             'time': TimeInput(attrs={'min':'12:30', 'max':'22:00', 'step':'1800'}),
-            'notes': NotesInput(attrs={'style':'max-height:100px'})
+            'notes': NotesInput(attrs={'style':'max-height:100px'}),
+            'partySize': PartySizeInput(attrs={'min':'1', 'max':'20'})
         }

@@ -1,12 +1,38 @@
 {% extends 'base.html' %}
-{% block header %}
-<h2>
-  Edit Reservation
-</h2>
-{% endblock %}
 {% block content %}
-{% include 'reservationform.html' %}
-<a href="{% url 'view' reservation.url %}">
-  Cancel
-</a>
+<div style="max-width: 800px" class="p-2 ml-auto mr-auto mt-3">
+  <h3 class="header d-inline">
+    Edit Reservation
+  </h3>
+  <a class='btn btn-warning d-inline ml-3' href="{% url 'view' reservation.url %}">
+    Cancel
+  </a>
+  <button type="button" class="btn btn-danger ml-3" data-toggle="modal" data-target="#deleteModal">
+    Delete
+  </button>
+  <hr>
+  {% include 'reservationform.html' %}
+</div>
+
+<div class="modal" id="deleteModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h4 class="modal-title">Are you sure you want to delete your reservation?</h4>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+        <form action="{% url 'delete' reservation.url %}" method="POST">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
 {% endblock %}

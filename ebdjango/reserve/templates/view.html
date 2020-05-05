@@ -1,24 +1,40 @@
 {% extends 'base.html' %}
-{% block header %}
-<h2>
-  View Reservation
-</h2>
-{% endblock %}
 {% block content %}
-<ul>
-  <li>{{ reservation.name }}</li>
-  <li>{{ reservation.email }}</li>
-  <li>{{ reservation.date }}</li>
-  <li>{{ reservation.time }}</li>
-  <li>{{ reservation.partySize }}</li>
-  <li>{{ reservation.notes }}</li>
-  <li>{{ reservation.url }}</li>
-</ul>
-<a href="{% url 'edit' reservation.url %}">
-  Edit
-</a>
-<div></div>
-<a href="{% url 'index' %}">
-  Home
-</a>
+<div style="max-width: 800px" class="p-2 ml-auto mr-auto mt-3">
+  <h3 class="header d-inline">
+    View Reservation
+  </h3>
+  <a class='btn btn-info d-inline ml-3' href="{% url 'edit' reservation.url %}">
+    Edit
+  </a>
+  <hr>
+  <table class="w-100 table-striped">
+    <tbody>
+      <tr>
+        <td class='pr-5 p-2'>Name</td>
+        <td class='pr-3'>{{ reservation.name }}</td>
+      </tr>
+      <tr>
+        <td class='pr-5 p-2'>Email</td>
+        <td class='pr-3'>{{ reservation.email }}</td>
+      </tr>
+      <tr>
+        <td class='pr-5 p-2'>Date</td>
+        <td class='pr-3'>{{ reservation.date }}</td>
+      </tr>
+      <tr>
+        <td class='pr-5 p-2'>Time</td>
+        <td class='pr-3'>{{ reservation.time }}</td>
+      </tr>
+      <tr>
+        <td class='pr-5 p-2'>Party Size</td>
+        <td class='pr-3'>{{ reservation.partySize }}</td>
+      </tr>
+      <tr>
+        <td class='pr-5 p-2'>Notes</td>
+        <td class='pr-3'>{{ reservation.notes }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 {% endblock %}

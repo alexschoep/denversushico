@@ -18,8 +18,8 @@ def reserve(request):
         form = ReservationForm(request.POST)
         if form.is_valid():
             reservation = form.save()
-            # email = EmailMessage(reservation)
-            # email.send()
+            email = EmailMessage(reservation)
+            email.send()
             return redirect('view', pk=reservation.url)
 
     else:

@@ -78,6 +78,7 @@ WSGI_APPLICATION = 'ebdjango.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 #use SQLite locally and PostgreSQL on development server
+
 if 'RDS_HOSTNAME' in os.environ:
     DATABASES = {
         'default': {
@@ -89,6 +90,7 @@ if 'RDS_HOSTNAME' in os.environ:
             'PORT': os.environ['RDS_PORT'],
         }
     }
+
 else:
     DATABASES = {
         'default': {

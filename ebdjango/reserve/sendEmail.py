@@ -9,9 +9,7 @@ def sendEmail(reservation):
       from_email='no-reply@denversushicompany.com',
       to_emails=reservation.email,
       subject='Your Reservation at Denver Sushi Company',
-      html_content=f'<p>Hello {reservation.name}</p>
-      <p>You have created a reservation for {reservation.time} on {reservation.date}</p>
-      <p>To edit or delete your reservation, go to denversushicompany.com/reserve/{reservation.url}/edit')
+      html_content=f'<p>Hello {reservation.name}</p><p>You have created a reservation for {reservation.time} on {reservation.date}</p><p>To edit or delete your reservation, go to denversushicompany.com/reserve/{reservation.url}/edit/<p>')
   try:
       sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
       response = sg.send(message)

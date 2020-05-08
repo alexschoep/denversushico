@@ -20,14 +20,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '7jt7@&maa2g#6hjx$w2qxl$3@5hr#ddmk1qmrukltxo3l4m$!t'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG_MODE')
 
 #allow localhost and elasticbeanstalk internal url
-ALLOWED_HOSTS = ['ebdjango-dev22.us-west-2.elasticbeanstalk.com', '127.0.0.1']
-
+ALLOWED_HOSTS = []
+ALLOWED_HOSTS.append(os.environ.get('ALLOWED_HOST'))
 
 # Application definition
 
@@ -135,4 +135,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'

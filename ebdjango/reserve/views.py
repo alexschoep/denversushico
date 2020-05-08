@@ -3,8 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Reservation
 from .forms import ReservationForm
 from django.views.generic.detail import DetailView
-from .sendEmail import EmailMessage
-
+from .sendEmail import sendEmail
 
 # Create your views here.
 
@@ -18,8 +17,7 @@ def reserve(request):
         form = ReservationForm(request.POST)
         if form.is_valid():
             reservation = form.save()
-            email = EmailMessage(reservation)
-            email.send()
+            sendEmail(reservation)
             return redirect('view', pk=reservation.url)
 
     else:

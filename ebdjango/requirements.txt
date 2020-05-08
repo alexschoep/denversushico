@@ -1,4 +1,4 @@
-Django==2.1.1
+Django==2.2.10
 pytz==2019.3
 psycopg2==2.8.5
 sendgrid==6.3.0

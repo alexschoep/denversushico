@@ -26,8 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG_MODE')
 
 #allow localhost and elasticbeanstalk internal url
-ALLOWED_HOSTS = []
-ALLOWED_HOSTS.append(os.environ.get('ALLOWED_HOST'))
+ALLOWED_HOSTS = ['denversushicompany.com', 'www.denversushicompany.com']
 
 # Application definition
 
@@ -137,5 +136,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'

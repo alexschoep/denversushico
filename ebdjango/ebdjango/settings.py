@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG_MODE')
 
 #allow localhost and elasticbeanstalk internal url
-ALLOWED_HOSTS = ['denversushicompany.com', 'www.denversushicompany.com']
+ALLOWED_HOSTS = ['denversushicompany.com', 'www.denversushicompany.com', 'localhost']
 
 # Application definition
 

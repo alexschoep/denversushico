@@ -4,19 +4,21 @@
   <h3 class="header d-inline">
     View Reservation
   </h3>
-  <a class='btn btn-info d-inline ml-3' href="{% url 'edit' reservation.url %}">
+  <a class="btn btn-info d-inline ml-3 {% if reservation.expired %}disabled{% endif %}"
+    href="{% url 'edit' reservation.url %}">
     Edit
   </a>
+  {% if reservation.expired %}
+  <span class="pl-3 text-danger">
+    *Reservation is expired
+  </span>
+  {% endif %}
   <hr>
   <table class="w-100 table-striped">
     <tbody>
       <tr>
-        <td class='pr-5 p-2'>Name</td>
+        <td class='pr-5 p-2'>First Name</td>
         <td class='pr-3'>{{ reservation.name }}</td>
-      </tr>
-      <tr>
-        <td class='pr-5 p-2'>Email</td>
-        <td class='pr-3'>{{ reservation.email }}</td>
       </tr>
       <tr>
         <td class='pr-5 p-2'>Date</td>

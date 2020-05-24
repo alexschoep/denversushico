@@ -5,6 +5,10 @@ from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
 def sendEmail(reservation):
+  #disable
+  print('disable')
+  return False
+  print('enable')
   message = Mail(
       from_email='no-reply@denversushicompany.com',
       to_emails=reservation.email,

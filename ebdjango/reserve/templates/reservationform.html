@@ -1,16 +1,19 @@
 <form method="POST" class="post-form">
   {% csrf_token %}
+  <div class="pb-2">{{ form.non_field_errors }}</div>
   <div class="row">
     <div class="form-group col-md">
-      <label for="name">Name</label>
+      <label for="name">First Name</label>
       {{ form.name }}
       {{ form.name.errors }}
     </div>
+    {% if initial %}
     <div class="form-group col-md">
       <label for="email">Email</label>
       {{ form.email }}
       {{ form.email.errors }}
     </div>
+    {% endif %}
   </div>
   <div class="row">
     <div class="form-group col-md">

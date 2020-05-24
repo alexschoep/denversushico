@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Reservation
-from .forms import ReservationForm
+from .forms import MakeReservationForm, EditReservationForm
 from django.views.generic.detail import DetailView
 from .sendEmail import sendEmail
 
@@ -14,16 +14,19 @@ def index(request):
 
 def reserve(request):
     if request.method == "POST":
-        form = ReservationForm(request.POST)
+        form = MakeReservationForm(request.POST)
         if form.is_valid():
             reservation = form.save()
             sendEmail(reservation)
             return redirect('view', pk=reservation.url)
 
     else:
-        form = ReservationForm()
+        form = MakeReservationForm()
     
-    context = {"form": form}
+    context = {
+        "initial": True,
+        "form": form
+    }
     return render(request, 'reserve.html', context)
 
 
@@ -34,20 +37,24 @@ class ReservationDetailView(DetailView):
 
 def edit(request, pk):
     reservation = get_object_or_404(Reservation, pk=pk)
+    
     if request.method == "POST":
-        form = ReservationForm(request.POST, instance=reservation)
+        form = EditReservationForm(request.POST, instance=reservation)
         if form.is_valid():
             form.save()
             return redirect('view', pk=pk)
 
     else:
-        form = ReservationForm(initial={'name': reservation.name, 'email': reservation.email, 'date': reservation.date, 
+        form = EditReservationForm(initial={'name': reservation.name, 'date': reservation.date, 
                                     'time': reservation.time, 'partySize': reservation.partySize, 'notes': reservation.notes})
+
     context = {
+        "initial": False,
         "reservation": reservation,
         "form": form
     }
     return render(request, 'edit.html', context)
+
 
 def delete(request, pk):
     reservation = get_object_or_404(Reservation, pk=pk)

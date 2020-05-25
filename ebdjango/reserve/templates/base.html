@@ -12,11 +12,10 @@
   <link rel="stylesheet" href='{% static "css/style.css" %}'>
 </head>
 
-<body
-  style="background-image:url({% static '/images/sushi4.jpg' %}); background-position: center; background-repeat: no-repeat; background-size: cover; background-attachment: fixed;"
-  class="ml-auto mr-auto">
+<body style="background: linear-gradient(#5b0016, #000000); background-attachment: fixed;" class="ml-auto mr-auto">
   <div style="max-width:1200px" class="ml-auto mr-auto pl-2 pr-2">
-    <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top row">
+    <nav style="background: linear-gradient(to bottom right, #ff9563, #cc0000)"
+      class="navbar navbar-expand-md navbar-light sticky-top row">
       <div class="navbar-text col-md-8 col-9">
         <a href="{% url 'index' %}">
           <h1 class="pl-2 header">Denver Sushi Co</h1>

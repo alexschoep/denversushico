@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-<div class="pt-4 pb-4 ml-auto mr-auto mt-5 row justify-content-center text-light bg-dark">
+<div class="pt-4 pb-4 ml-auto mr-auto mt-5 row justify-content-center text-light bg-dark rounded border border-light">
   <div class="col-md-4">
     {% load static %}
     <img style="width:100%; max-width:400px" class="d-block mx-auto" src='{% static "/images/logo.png" %}'>
@@ -11,11 +11,13 @@
       Welcome!
     </h2>
     <p>
-      Welcome to Denver Sushi Company. DSCo is not a real restaraunt. It is a web application test project. DSCo is
+      Welcome to Denver Sushi Company. DSCo is not a real restaurant. It is a web application test project. DSCo is
       built using technologies such as Python, Django, PostgreSQL, and Bootstrap. To view this
-      web app's source code, please visit <a href='github.com'>this Github link</a>. To learn more about this project
+      web app's source code, please visit <a target="_blank" href='https://www.github.com/alexschoep/denversushico'>this
+        Github link</a>.
+      To learn more about this project
       and its creator,
-      visit <a href='alexschoep.net'>this link</a>.
+      visit <a target="_blank" href='https://www.linkedin.com/in/alex-schoep-851a531a7/'>this link</a>.
     </p>
   </div>
 </div>
@@ -46,7 +48,7 @@
     </a>
   </div>
 </div>
-<div class="p-2 pt-4 ml-auto mr-auto bg-dark text-light mt-5">
+<div class="p-2 pt-4 ml-auto mr-auto bg-dark text-light mt-5 rounded border border-light">
   <h3 class="header pl-5">
     Make A Reservation
   </h3>

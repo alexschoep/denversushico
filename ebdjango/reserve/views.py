@@ -9,7 +9,13 @@ from .sendEmail import sendEmail
 
 #displays the landing page
 def index(request):
-    return render(request, 'index.html')
+    form = MakeReservationForm()
+    context = {
+        "formAction": '/reserve/',
+        "initial": True,
+        "form": form
+    }
+    return render(request, 'index.html', context)
 
 
 def reserve(request):
@@ -24,6 +30,7 @@ def reserve(request):
         form = MakeReservationForm()
     
     context = {
+        "formAction": '',
         "initial": True,
         "form": form
     }
@@ -49,6 +56,7 @@ def edit(request, pk):
                                     'time': reservation.time, 'partySize': reservation.partySize, 'notes': reservation.notes})
 
     context = {
+        "formAction": '',
         "initial": False,
         "reservation": reservation,
         "form": form

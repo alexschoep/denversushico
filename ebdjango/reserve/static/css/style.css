@@ -3,6 +3,10 @@
   font-weight: 700;
 }
 
+.textredd {
+  color: red;
+}
+
 .errorlist {
   margin: 0;
   padding-left: 0.25em;
@@ -11,4 +15,17 @@
 .errorlist > li {
   color: red;
   list-style: none;
+}
+
+.bg-red {
+  color: red;
+  background-color: #cc0000;
+}
+
+.bg-maroon {
+  background-color: #5b0016;
+}
+
+.bg-peach {
+  background-color: #ff9563;
 }

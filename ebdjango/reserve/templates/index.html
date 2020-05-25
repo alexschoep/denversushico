@@ -1,21 +1,57 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="jumbotron row justify-content-center">
+{% load static %}
+<div class="pt-4 pb-4 ml-auto mr-auto mt-5 row justify-content-center text-light bg-dark">
   <div class="col-md-4">
     {% load static %}
     <img style="width:100%; max-width:400px" class="d-block mx-auto" src='{% static "/images/logo.png" %}'>
   </div>
   <div class="col-md-4 mt-3">
-    <h2>
+    <h2 class="header">
       Welcome!
     </h2>
     <p>
-      Welcome to Denver Sushi Company! Lorem ipsum dolor sit amet blah blah blah asdfsdfg dfg dfgsgd dfg df ggdfgd gdfg
-      dgdfgd fgdfgdfgd fgdfg dg dfg dfg dfg
+      Welcome to Denver Sushi Company. DSCo is not a real restaraunt. It is a web application test project. DSCo is
+      built using technologies such as Python, Django, PostgreSQL, and Bootstrap. To view this
+      web app's source code, please visit <a href='github.com'>this Github link</a>. To learn more about this project
+      and its creator,
+      visit <a href='alexschoep.net'>this link</a>.
     </p>
   </div>
 </div>
-<div class="carousel slide" data-ride="carousel">
-
+<div class="mt-5">
+  <div style="max-width: 1200px;" id="carouselControls" class="ml-auto mr-auto carousel slide w-100"
+    data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        {% load static %}
+        <img class="d-block w-100" src='{% static "/images/sushi1.jpg" %}' alt="First slide">
+      </div>
+      <div class="carousel-item">
+        {% load static %}
+        <img class="d-block w-100" src='{% static "/images/sushi2.jpg" %}' alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        {% load static %}
+        <img class="d-block w-100" src='{% static "/images/sushi3.jpg" %}' alt="Third slide">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
 </div>
+<div class="p-2 pt-4 ml-auto mr-auto bg-dark text-light mt-5">
+  <h3 class="header pl-5">
+    Make A Reservation
+  </h3>
+  <hr>
+  {% include 'reservationform.html' %}
+</div>
+<div class="carousel slide" data-ride="carousel"></div>
 {% endblock %}

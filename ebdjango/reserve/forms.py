@@ -1,7 +1,7 @@
 from django import forms
 from django.core.validators import EmailValidator, MinValueValidator, MaxValueValidator
 import datetime
-from .models import Reservation
+from .models import Reservation, is_expired
 
 class DateInput(forms.DateInput):
     input_type = 'date'
@@ -32,8 +32,12 @@ class ReservationForm(forms.ModelForm):
 
     def clean(self):
         super().clean()
+        if is_expired(self.cleaned_data.get("date"), self.cleaned_data.get("time")):
+            raise forms.ValidationError("Time or date has already passed")
+
         if self.instance.expired:
             raise forms.ValidationError("This reservation is expired")
+
 
 class MakeReservationForm(ReservationForm):
     def __init__(self, *args, **kwargs):

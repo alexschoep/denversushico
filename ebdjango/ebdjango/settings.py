@@ -23,10 +23,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG_MODE')
+if os.environ.get('DEBUG_MODE') == 'False':
+    DEBUG = False
+else:
+    DEBUG = True
 
 #allow localhost and elasticbeanstalk internal url
-ALLOWED_HOSTS = ['denversushicompany.com', 'www.denversushicompany.com', 'localhost']
+ALLOWED_HOSTS = ['denversushicompany.com', 'www.denversushicompany.com', 'localhost', 'dsco-prod.us-west-2.elasticbeanstalk.com']
 
 # Application definition
 

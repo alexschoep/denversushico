@@ -9,4 +9,4 @@ db.sqlite3-journal
 media
 endjango
 migrations/
-reserve/tests.py
+ebdjango/reserve/tests.py

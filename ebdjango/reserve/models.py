@@ -3,6 +3,7 @@ import datetime
 from django.core.validators import EmailValidator
 from random import choice
 from string import ascii_letters
+from django.utils import timezone
 
 #Create list of possible reservation times
 TIME_CHOICES = []
@@ -41,7 +42,7 @@ class Reservation(models.Model):
     url = models.CharField(max_length=24, primary_key=True)
     name = models.CharField(max_length=128)
     email = models.CharField(max_length=128)
-    date = models.DateField(default=datetime.datetime.now().date())
+    date = models.DateField(default=timezone.now)
     time = models.TimeField(choices=TIME_CHOICES, default=TIME_CHOICES[0][0])
     partySize = models.IntegerField(default=1)
     notes = models.CharField(max_length=256, blank=True)
